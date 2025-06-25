@@ -48,45 +48,72 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="py-20 bg-white">
+    <section
+      id="services"
+      className="py-20 bg-gradient-to-br from-gray-50 to-primary-50/30"
+    >
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="font-montserrat font-bold text-3xl md:text-4xl text-secondary-900 mb-4">
+          <div className="inline-flex items-center bg-primary-100 px-4 py-2 rounded-full mb-4">
+            <span className="text-primary-700 font-opensans text-sm font-semibold">
+              ✨ Наши возможности
+            </span>
+          </div>
+          <h2 className="font-montserrat font-bold text-4xl md:text-5xl bg-gradient-to-r from-secondary-900 to-primary-700 bg-clip-text text-transparent mb-6">
             Наши услуги
           </h2>
-          <p className="font-opensans text-lg text-secondary-600 max-w-2xl mx-auto">
+          <p className="font-opensans text-xl text-secondary-600 max-w-3xl mx-auto">
             Полный спектр услуг для успешного импорта товаров из Китая — от
             поиска до доставки
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <Card
-              key={index}
-              className="hover:shadow-lg transition-shadow duration-300 border-l-4 border-l-primary"
-            >
-              <CardContent className="p-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+          {services.map((service, index) => {
+            const colors = [
+              "from-primary-500 to-primary-600",
+              "from-accent-500 to-accent-600",
+              "from-success-500 to-success-600",
+              "from-purple-500 to-purple-600",
+              "from-pink-500 to-pink-600",
+              "from-cyan-500 to-cyan-600",
+              "from-indigo-500 to-indigo-600",
+            ];
+            const bgColors = [
+              "from-primary-50 to-primary-100",
+              "from-accent-50 to-accent-100",
+              "from-success-50 to-success-100",
+              "from-purple-50 to-purple-100",
+              "from-pink-50 to-pink-100",
+              "from-cyan-50 to-cyan-100",
+              "from-indigo-50 to-indigo-100",
+            ];
+            return (
+              <Card
+                key={index}
+                className={`hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 border-0 bg-gradient-to-br ${bgColors[index % bgColors.length]} group cursor-pointer overflow-hidden`}
+              >
+                <CardContent className="p-8 relative">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/20 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                  <div
+                    className={`w-16 h-16 bg-gradient-to-br ${colors[index % colors.length]} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}
+                  >
                     <Icon
                       name={service.icon as any}
-                      size={24}
-                      className="text-primary"
+                      size={28}
+                      className="text-white"
                     />
                   </div>
-                  <div>
-                    <h3 className="font-montserrat font-semibold text-lg text-secondary-900 mb-3">
-                      {service.title}
-                    </h3>
-                    <p className="font-opensans text-secondary-600 leading-relaxed">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                  <h3 className="font-montserrat font-bold text-xl text-secondary-900 mb-4 group-hover:text-primary-700 transition-colors">
+                    {service.title}
+                  </h3>
+                  <p className="font-opensans text-secondary-700 leading-relaxed">
+                    {service.description}
+                  </p>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>

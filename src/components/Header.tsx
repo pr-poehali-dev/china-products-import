@@ -14,14 +14,14 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-white shadow-md fixed w-full top-0 z-50">
+    <header className="bg-white/95 backdrop-blur-md shadow-lg fixed w-full top-0 z-50 border-b border-primary-100/50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
-              <Icon name="Package" size={20} className="text-white" />
+          <div className="flex items-center space-x-3">
+            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-primary-600 rounded-xl flex items-center justify-center shadow-lg">
+              <Icon name="Package" size={24} className="text-white" />
             </div>
-            <span className="font-montserrat font-bold text-xl text-primary">
+            <span className="font-montserrat font-bold text-2xl bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent">
               ChinaImport
             </span>
           </div>
@@ -54,7 +54,7 @@ const Header = () => {
             </button>
             <Button
               onClick={() => scrollToSection("contacts")}
-              className="bg-primary hover:bg-primary-700"
+              className="bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 hover:scale-105 transition-all duration-300 shadow-lg"
             >
               Получить консультацию
             </Button>
@@ -99,7 +99,7 @@ const Header = () => {
               </button>
               <Button
                 onClick={() => scrollToSection("contacts")}
-                className="w-full mt-4 bg-primary hover:bg-primary-700"
+                className="w-full mt-4 bg-gradient-to-r from-primary-500 to-primary-600 hover:from-primary-600 hover:to-primary-700 hover:scale-105 transition-all duration-300 shadow-lg"
               >
                 Получить консультацию
               </Button>
